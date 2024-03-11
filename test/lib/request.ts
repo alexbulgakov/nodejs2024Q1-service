@@ -1,9 +1,9 @@
-import * as request from 'supertest';
-import 'dotenv/config';
+import * as request from 'supertest'
+import 'dotenv/config'
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000
 
-const host = `localhost:${port}`;
-const _request = request(host);
+const host = `localhost:${port}`
+const _request = request(host)
 
-export default _request;
+export default _request

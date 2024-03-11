@@ -1,9 +1,9 @@
-import { authRoutes } from '../endpoints';
+import { authRoutes } from '../endpoints'
 
 const createUserDto = {
   login: 'TEST_AUTH_LOGIN',
   password: 'Tu6!@#%&',
-};
+}
 
 const getTokenAndUserId = async (request) => {
   // create user
@@ -12,7 +12,7 @@ const getTokenAndUserId = async (request) => {
   } = await request
     .post(authRoutes.signup)
     .set('Accept', 'application/json')
-    .send(createUserDto);
+    .send(createUserDto)
 
   // get token
   const {
@@ -20,13 +20,13 @@ const getTokenAndUserId = async (request) => {
   } = await request
     .post(authRoutes.login)
     .set('Accept', 'application/json')
-    .send(createUserDto);
+    .send(createUserDto)
 
   if (mockUserId === undefined || accessToken === undefined) {
-    throw new Error('Authorization is not implemented');
+    throw new Error('Authorization is not implemented')
   }
 
-  const token = `Bearer ${accessToken}`;
+  const token = `Bearer ${accessToken}`
 
   return {
     token,
@@ -34,7 +34,7 @@ const getTokenAndUserId = async (request) => {
     refreshToken,
     mockUserId,
     login: createUserDto.login,
-  };
-};
+  }
+}
 
-export default getTokenAndUserId;
+export default getTokenAndUserId
